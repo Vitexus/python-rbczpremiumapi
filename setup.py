@@ -21,8 +21,12 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
+
+# Read README file for long description
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 NAME = "rbczpremiumapi"
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",
@@ -34,17 +38,15 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="Production",
-    author="OpenAPI Generator community",
+    description="Python client library for Raiffeisen Bank Czech Republic Premium API",
+    author="VitexSoftware",
     author_email="info@vitexsoftware.cz",
-    url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "Production"],
+    url="https://github.com/Vitexus/python-rbczpremiumapi",
+    keywords=["RBC", "Raiffeisen", "Bank", "API", "Premium", "OpenAPI", "mTLS", "PKCS12"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    long_description_content_type='text/markdown',
-    long_description="""\
-    ##### API Overview - Accounts list and balance - Transaction overview (also for saving accounts) - Payments import - Statement list and download - FX rates  ##### Authentication Before making a call to Premium API, you need to register your app at our _Developer portal_. This is where you get the **ClientID** that your application must send in the request as &#x60;X-IBM-Client-Id&#x60;. This is the key that grants your app access to the API.  However, this may not be enough. Your application needs to use mTLS to call most operations here. Thus, you not only need _https_ but also a client certificate issued by us. The exception is two operations for FX rates that are accessible also without a client certificate.  Each bank client/user can issue several certificates. Each certificate can permit different sets of operations (http methods) on different bank accounts. All this must be configured in Internet Banking first by each bank client/user (bank clients need to look under _Settings_ and do not forget to download the certificate at the last step). The certificate is downloaded in **PKCS#12** format as **\\*.p12** file and protected by a password chosen by the bank client/user. Yes, your app needs the password as well to get use of the **\\*p12** file for establishing mTLS connection to the bank.  Client certificates issued in Internet Banking for bank clients/users have limited validity (e.g. **5 years**). However, **each year** certificates are automatically blocked and bank client/user must unblock them in Internet Banking. It is possible to do it in advance and prolong the time before the certificate is blocked. Your app should be prepared for these scenarios and it should communicate such cases to your user in advance to provide seamless service and high user-experience of your app.  ##### Rate Limiting The number of requests in each API operation is limited to 10 per client per sliding second and 5000 per client per sliding day. The exception is the &#39;Download Statement&#39; operation with the limits lowered to 5 per client per sliding second and 1500 per client per sliding day. This is because it transports potentially sizeable binary files. The consumer must be able to handle HTTP status 429 in case of exceeding these limits.  Response headers &#x60;X-RateLimit-Limit-Second&#x60; and &#x60;X-RateLimit-Limit-Day&#x60; show the actual limits configured for the specific operation. Response headers &#x60;X-RateLimit-Remaining-Second&#x60; and &#x60;X-RateLimit-Remaining-Day&#x60; are returned to help prevent the limits from being exceeded.  ##### Notes Be aware, that in certain error situations, API can return specific error structures along with 5xx status code, which is not explicitely defined below.  ##### Quick Start Client Feel free to download a &lt;a href&#x3D;\&quot;assets/PremiumApiClient.java\&quot; download&gt;simple Java client&lt;/a&gt; that gives you quick access to our API. 
-    """,  # noqa: E501
+    long_description_content_type="text/markdown",
+    long_description=long_description,
     package_data={"rbczpremiumapi": ["py.typed"]},
 )
