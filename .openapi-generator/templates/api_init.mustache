@@ -1,0 +1,10 @@
+# coding: utf-8
+
+{{>partial_header}}
+
+# import APIs into API package
+{{#apiDocumentationUrl}}
+{{#operations}}
+from .{{classVarName}} import {{classname}}
+{{/operations}}
+{{/apiDocumentationUrl}}

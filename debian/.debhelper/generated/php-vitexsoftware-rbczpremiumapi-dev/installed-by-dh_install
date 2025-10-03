@@ -1,0 +1,9 @@
+./examples/example.env
+./debian/test/phpunit.xml
+./debian/test/composer.json
+./debian/test/bootstrap.php
+./examples/download_statements.py
+./examples/example.env
+./examples/getstatements.py
+./examples/test_cert.p12
+./examples/test_cert_ssl3.p12

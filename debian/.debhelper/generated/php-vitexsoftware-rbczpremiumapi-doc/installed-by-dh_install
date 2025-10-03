@@ -1,0 +1,15 @@
+./phpdoc/css/base.css
+./phpdoc/css/normalize.css
+./phpdoc/css/template.css
+./phpdoc/graphs/classes.html
+./phpdoc/index.html
+./phpdoc/indices/files.html
+./phpdoc/js/search.js
+./phpdoc/js/searchIndex.js
+./phpdoc/js/template.js
+./phpdoc/packages/default.html
+./phpdoc/reports/deprecated.html
+./phpdoc/reports/errors.html
+./phpdoc/reports/markers.html
+./debian/php-vitexsoftware-rbczpremiumapi-doc.conf
+./README.md

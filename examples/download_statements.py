@@ -1,8 +1,15 @@
 import os
 import requests
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Initialize environment variables
 X_IBM_CLIENT_ID = os.getenv('XIBMCLIENTID')
+ACCOUNT_NUMBER = os.getenv('ACCOUNT_NUMBER')
+CERT_FILE = os.getenv('CERT_FILE')
+CERT_PASS = os.getenv('CERT_PASS')
 
 # Example function to download statements
 def download_statements():
