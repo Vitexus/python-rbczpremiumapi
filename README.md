@@ -1,4 +1,7 @@
 # rbczpremiumapi
+
+![RBC Premium API Python Library Logo](library-logo.svg)
+
 ##### API Overview
 - Accounts list and balance
 - Transaction overview (also for saving accounts)
