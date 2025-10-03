@@ -44,9 +44,9 @@ Python 3.9+
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https://github.com/VitexSoftware/python-vitexsoftware-rbczpremiumapi.git
+pip install git+https://github.com/Vitexus/python-rbczpremiumapi.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/VitexSoftware/python-vitexsoftware-rbczpremiumapi.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/Vitexus/python-rbczpremiumapi.git`)
 
 Then import the package:
 ```python

@@ -40,6 +40,6 @@
     }
   ],
   "type": "library",
-  "homepage": "https://github.com/VitexSoftware/php-vitexsoftware-rbczpremiumapi",
+  "homepage": "https://github.com/Vitexus/python-rbczpremiumapi",
   "license": "MIT"
 }

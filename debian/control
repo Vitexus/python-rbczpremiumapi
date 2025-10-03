@@ -5,7 +5,7 @@ Standards-Version: 3.9.8
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Uploaders: Vitex <vitex@hippy.cz>
 Priority: optional
-Homepage: https://github.com/VitexSoftware/php-vitexsoftware-rbczpremiumapi
+Homepage: https://github.com/Vitexus/python-rbczpremiumapi
 
 Package: php-vitexsoftware-rbczpremiumapi
 Depends: ${misc:Depends}, php-guzzlehttp-psr7, composer-debian, php-vitexsoftware-ease-core

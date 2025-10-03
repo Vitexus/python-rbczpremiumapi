@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "rbczpremiumapi"
-version = "1.0.0"
-description = "Production"
-authors = ["OpenAPI Generator Community <info@vitexsoftware.cz>"]
+version = "1.0.1"
+description = "Python client library for Raiffeisen Bank Czech Republic Premium API"
+authors = ["VitexSoftware <info@vitexsoftware.cz>"]
 license = "NoLicense"
 readme = "README.md"
-repository = "https://github.com/VitexSoftware/python-vitexsoftware-rbczpremiumapi"
-keywords = ["OpenAPI", "OpenAPI-Generator", "Production"]
+repository = "https://github.com/Vitexus/python-rbczpremiumapi"
+keywords = ["RBC", "Raiffeisen", "Bank", "API", "Premium", "OpenAPI", "mTLS", "PKCS12"]
 include = ["rbczpremiumapi/py.typed"]
 
 [tool.poetry.dependencies]
