@@ -15,7 +15,7 @@
     Do not edit the class manually.
 """
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 # import apis into sdk package
 from .PremiumAPI.download_statement_api import DownloadStatementApi
@@ -85,3 +85,11 @@ from rbczpremiumapi.Model.import_payments200_response import ImportPayments200Re
 from rbczpremiumapi.Model.import_payments400_response import ImportPayments400Response
 from rbczpremiumapi.Model.import_payments413_response import ImportPayments413Response
 from rbczpremiumapi.Model.import_payments415_response import ImportPayments415Response
+
+# import RateLimit module
+from rbczpremiumapi.RateLimit.rate_limiter import RateLimiter
+from rbczpremiumapi.RateLimit.rate_limit_store_interface import RateLimitStoreInterface
+from rbczpremiumapi.RateLimit.rate_limit_exceeded_exception import RateLimitExceededException
+from rbczpremiumapi.RateLimit.sql_dialect import SqlDialect
+from rbczpremiumapi.RateLimit.json_rate_limit_store import JsonRateLimitStore
+from rbczpremiumapi.RateLimit.db_rate_limit_store import DbRateLimitStore

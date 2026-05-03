@@ -44,3 +44,11 @@ from .exceptions import ApiException
 from .{{modelPackage}}.{{classFilename}} import {{classname}}
 {{/model}}
 {{/models}}
+
+# import RateLimit module
+from {{packageName}}.RateLimit.rate_limiter import RateLimiter
+from {{packageName}}.RateLimit.rate_limit_store_interface import RateLimitStoreInterface
+from {{packageName}}.RateLimit.rate_limit_exceeded_exception import RateLimitExceededException
+from {{packageName}}.RateLimit.sql_dialect import SqlDialect
+from {{packageName}}.RateLimit.json_rate_limit_store import JsonRateLimitStore
+from {{packageName}}.RateLimit.db_rate_limit_store import DbRateLimitStore
