@@ -93,3 +93,6 @@ from rbczpremiumapi.RateLimit.rate_limit_exceeded_exception import RateLimitExce
 from rbczpremiumapi.RateLimit.sql_dialect import SqlDialect
 from rbczpremiumapi.RateLimit.json_rate_limit_store import JsonRateLimitStore
 from rbczpremiumapi.RateLimit.db_rate_limit_store import DbRateLimitStore
+
+# import Outage module
+from rbczpremiumapi.Outage.outage_exception import OutageException

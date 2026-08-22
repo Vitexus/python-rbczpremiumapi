@@ -29,6 +29,8 @@ info:
     ##### Notes
     Be aware, that in certain error situations, API can return specific error structures along with 5xx status code, which is not explicitely defined below.
 
+    Not covered by this specification (observed empirically, not documented by Raiffeisenbank): when the API gateway itself is down rather than rejecting an individual request, every endpoint returns HTTP 500 together with an `outage: yes` response header, regardless of account/certificate/client - this is distinguishable from a per-request 500 caused by bad input or a transient backend error, which does not carry this header.
+
     ##### Quick Start Client
     Feel free to download a <a href="assets/PremiumApiClient.java" download>simple Java client</a> that gives you quick access to our API.
   x-ibm-name: rbczpremiumapi
@@ -158,6 +160,7 @@ paths:
                 type: string
                 enum:
                   - UNAUTHORISED
+                  - INVALID_REQUEST
               error_description:
                 type: string
         '403':
@@ -595,13 +598,15 @@ paths:
               error_description:
                 type: string
         '401':
-          description: Certificate is invalid.
+          description: Certificate's serial number is missing or certificate is in an invalid state.
           schema:
+            type: object
             properties:
               error:
                 type: string
                 enum:
                   - UNAUTHORISED
+                  - INVALID_REQUEST
               error_description:
                 type: string
         '403':
@@ -714,6 +719,7 @@ paths:
             - GEMINI-P32
             - GEMINI-F84
             - ABO-KPC
+            - DOM-XML
             - SEPA-XML
             - CFD
             - CFU
@@ -786,7 +792,7 @@ paths:
               error_description:
                 type: string
         '401':
-          description: Certificate is invalid.
+          description: Certificate's serial number is missing or certificate is in an invalid state.
           schema:
             type: object
             properties:
@@ -794,6 +800,7 @@ paths:
                 type: string
                 enum:
                   - UNAUTHORISED
+                  - INVALID_REQUEST
               error_description:
                 type: string
         '403':
@@ -841,7 +848,19 @@ paths:
               error_description:
                 type: string
         '500':
-          description: Unexpected error.
+          description: >-
+            Unexpected error. Note: not part of Raiffeisenbank's published
+            documentation, but empirically observed on this and other
+            endpoints - when the API gateway itself is down (rather than
+            rejecting this specific request), the response carries an
+            `outage: yes` header (see the `outage` entry below).
+          headers:
+            outage:
+              type: string
+              description: >-
+                Present with value `yes` when this 500 reflects a gateway-wide
+                outage rather than a per-request error. Undocumented by
+                Raiffeisenbank; observed empirically.
           schema:
             type: object
             properties:
@@ -1013,13 +1032,15 @@ paths:
               error_description:
                 type: string
         '401':
-          description: Certificate is invalid.
+          description: Certificate's serial number is missing or certificate is in an invalid state.
           schema:
+            type: object
             properties:
               error:
                 type: string
                 enum:
                   - UNAUTHORISED
+                  - INVALID_REQUEST
               error_description:
                 type: string
         '403':
@@ -1180,13 +1201,15 @@ paths:
           description: |
             Nonexisting page or empty content.
         '401':
-          description: Certificate is invalid.
+          description: Certificate's serial number is missing or certificate is in an invalid state.
           schema:
+            type: object
             properties:
               error:
                 type: string
                 enum:
                   - UNAUTHORISED
+                  - INVALID_REQUEST
               error_description:
                 type: string
         '403':
@@ -1394,13 +1417,15 @@ paths:
               error_description:
                 type: string
         '401':
-          description: Certificate is invalid.
+          description: Certificate's serial number is missing or certificate is in an invalid state.
           schema:
+            type: object
             properties:
               error:
                 type: string
                 enum:
                   - UNAUTHORISED
+                  - INVALID_REQUEST
               error_description:
                 type: string
         '403':
@@ -1536,13 +1561,15 @@ paths:
               error_description:
                 type: string
         '401':
-          description: Certificate is invalid.
+          description: Certificate's serial number is missing or certificate is in an invalid state.
           schema:
+            type: object
             properties:
               error:
                 type: string
                 enum:
                   - UNAUTHORISED
+                  - INVALID_REQUEST
               error_description:
                 type: string
         '403':
