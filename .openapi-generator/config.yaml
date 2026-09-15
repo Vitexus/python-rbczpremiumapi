@@ -12,3 +12,12 @@ additionalProperties:
   variableNamingConvention: snake_case
 files:
   AUTHORS.md: {}
+  outage_exception.mustache:
+    folder: rbczpremiumapi/Outage
+    destinationFilename: outage_exception.py
+  outage_init.mustache:
+    folder: rbczpremiumapi/Outage
+    destinationFilename: __init__.py
+  test_outage_exception.mustache:
+    folder: test
+    destinationFilename: test_outage_exception.py
